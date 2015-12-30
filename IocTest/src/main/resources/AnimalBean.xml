@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
-    <bean id="Duck" class="com.peng.spring.model.impl.Duck"/>
-    <bean id="Dog" class="com.peng.spring.model.impl.Dog"/>
+
+    <bean id = "factory" class="com.peng.spring.factory.AnimalFactory"/>
+
+    <bean id="duck" factory-bean="factory"  factory-method="getAnimal">
+        <constructor-arg value="duck"/>
+        <property name="msg" value="鸭子" />
+    </bean>
+
+    <bean id="dog" factory-bean="factory"  factory-method="getAnimal">
+        <constructor-arg value="dog"/>
+        <property name="msg" value="狗" />
+    </bean>
+
 </beans>
